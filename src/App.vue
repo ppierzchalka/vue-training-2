@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <Nav />
-    <v-content class="main-content">
+    <v-main class="main-content">
       <v-container class="grey lighten-5">
         <v-row>
           <v-col cols="12" sm="12">
@@ -9,7 +9,7 @@
           </v-col>
         </v-row>
       </v-container>
-    </v-content>
+    </v-main>
   </v-app>
 </template>
 
@@ -20,6 +20,18 @@ export default {
   name: 'App',
   components: {
     Nav
+  },
+  mounted () {
+    const route = localStorage.getItem('route')
+    route && this.$router.push(route)
+  },
+  watch: {
+    $route (toRoute, fromRoute) {
+      if (toRoute.path !== fromRoute.path) {
+        const { path } = toRoute
+        localStorage.setItem('route', path)
+      }
+    }
   }
 }
 </script>
