@@ -1,6 +1,6 @@
 <template>
   <li>
-    <a v-bind:href="href">{{title}}</a>
+    <router-link v-bind:to="href">{{title}}</router-link>
   </li>
 </template>
 
