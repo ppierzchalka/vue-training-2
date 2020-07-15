@@ -1,7 +1,7 @@
 <template>
-  <li>
-    <router-link v-bind:to="href">{{title}}</router-link>
-  </li>
+  <v-btn v-bind:to="href" text class="nav-button">
+    <span>{{title}}</span>
+  </v-btn>
 </template>
 
 <script>
@@ -15,12 +15,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-  text-decoration: none;
+.nav-button {
+  text-transform: capitalize;
+  margin: 0 2px;
+
 }
 </style>

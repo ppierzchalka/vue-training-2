@@ -1,9 +1,13 @@
 <template>
-  <div class="article" v-bind:id="id">
-    <h4 class="article-title">Article {{title}}</h4>
-    <lorem class="paragraph" add="1p" />
-    <button v-on:click="$router.go(-1)">Back</button>
-  </div>
+  <v-card class="article mx-auto" v-bind:id="id" max-width="400">
+    <v-card-title class="article-title">{{title}}</v-card-title>
+    <v-card-text class="text--primary paragraph">
+      <lorem add="1p" />
+    </v-card-text>
+    <v-card-actions>
+      <v-btn class="back-button" v-on:click="$router.go(-1)" text>Back</v-btn>
+    </v-card-actions>
+  </v-card>
 </template>
 
 <script>
@@ -22,27 +26,19 @@ export default {
 
 <style scoped lang="scss">
 .article {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   .article-title {
-    margin: 10px 0 0;
     color: #42b983;
   }
   .paragraph {
-    margin: 5px 0 15px;
-    max-width: 300px;
+    text-align: justify;
     color: #2c3e50;
   }
-  button {
+  .back-button {
     color: #35495e;
     background: #42b983;
-    padding: 10px 15px;
     font-weight: bold;
-    border: none;
-    border-radius: 5px;
     transition: all 0.2s ease-out;
+    text-transform: capitalize;
     &:hover {
       background: #35495e;
       color: #42b983;

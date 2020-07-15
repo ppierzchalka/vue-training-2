@@ -1,15 +1,17 @@
 <template>
-  <nav>
-    <h3>Random articles</h3>
-    <ul>
-      <NavItem
-        v-for="articleData in articlesData"
-        v-bind:key="articleData.id"
-        v-bind:href="articleData.href"
-        v-bind:title="articleData.title"
-      />
-    </ul>
-  </nav>
+  <v-app-bar app dark>
+    <NavItem
+      href="/"
+      title="Home"
+    />
+    <v-spacer></v-spacer>
+    <NavItem
+      v-for="articleData in articlesData"
+      v-bind:key="articleData.id"
+      v-bind:href="articleData.href"
+      v-bind:title="articleData.title"
+    />
+  </v-app-bar>
 </template>
 
 <script>
@@ -27,10 +29,3 @@ export default {
   }
 }
 </script>
-
-<style scoped lang="scss">
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-</style>

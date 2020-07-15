@@ -3,7 +3,7 @@ export function generateArticleData (value) {
   return {
     id: number,
     href: '/' + number.toString(),
-    title: number.toString()
+    title: `Article ${number.toString()}`
   }
 }
 

@@ -1,10 +1,16 @@
 <template>
-  <div id="app">
+  <v-app>
     <Nav />
-    <main class="main-content">
-      <router-view />
-    </main>
-  </div>
+    <v-content class="main-content">
+      <v-container class="grey lighten-5">
+        <v-row>
+          <v-col cols="12" sm="12">
+            <router-view />
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-content>
+  </v-app>
 </template>
 
 <script>
@@ -19,10 +25,6 @@ export default {
 </script>
 
 <style lang="scss">
-body {
-  margin: 0;
-  padding: 0;
-}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -30,8 +32,5 @@ body {
   text-align: center;
   color: #2c3e50;
   position: relative;
-  .main-content {
-    margin: 15px;
-  }
 }
 </style>
