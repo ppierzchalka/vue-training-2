@@ -20,6 +20,9 @@ export default {
   name: 'App',
   components: {
     Nav
+  },
+  mounted () {
+    this.$route.path === '/' && this.$router.push('/1')
   }
 }
 </script>
