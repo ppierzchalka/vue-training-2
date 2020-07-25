@@ -1,17 +1,12 @@
-export function generateArticleData (value) {
-  const number = typeof value === 'string' ? parseInt(value, 10) : value
+export const generateArticlesData = amount => {
+  return Array.from({ length: amount }, (_, k) => generateArticleData(k + 1))
+}
+
+export const generateArticleData = (k) => {
+  const number = k | 0
   return {
     id: number,
     href: '/' + number.toString(),
-    title: `Article ${number.toString()}`
+    title: `Article ${number}`
   }
-}
-
-export function generateArticlesData (amount) {
-  const numbers = []
-  for (let i = 0; i < amount; i++) {
-    const number = i + 1
-    numbers.push(generateArticleData(number))
-  }
-  return numbers
 }

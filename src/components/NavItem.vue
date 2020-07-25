@@ -1,6 +1,6 @@
 <template>
   <v-btn v-bind:to="href" text class="nav-button">
-    <span>{{title}}</span>
+    {{title}}
   </v-btn>
 </template>
 
