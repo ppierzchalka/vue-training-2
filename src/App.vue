@@ -10,26 +10,39 @@
         </v-row>
       </v-container>
     </v-main>
+    <Footer />
   </v-app>
 </template>
 
 <script>
 import Nav from './components/Nav.vue'
+import Footer from './components/Footer.vue'
 
 export default {
   name: 'App',
   components: {
-    Nav
+    Nav,
+    Footer
+  },
+  methods: {
+    setRoute (route) {
+      this.$store.commit('setRoute', route)
+    }
   },
   mounted () {
-    const route = localStorage.getItem('route')
-    route && this.$router.push(route)
+    const path = localStorage.getItem('route')
+    if (this.$route.path !== path) {
+      path && this.$router.push(path)
+    } else {
+      this.setRoute(path)
+    }
   },
   watch: {
     $route (toRoute, fromRoute) {
       if (toRoute.path !== fromRoute.path) {
         const { path } = toRoute
         localStorage.setItem('route', path)
+        this.setRoute(path)
       }
     }
   }
